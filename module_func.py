@@ -30,7 +30,6 @@ def select_in_range(prompt, min, max):
 	choice = input(prompt)
 	while not choice.isdigit() or int(choice) < min or int(choice) > max:
 		choice = input(prompt)
-
 	choice = int(choice)
 	return choice
 
@@ -38,6 +37,7 @@ def del_a_video(videos):
 	print_videos(videos)
 	choice = select_in_range("Enter video you want to delete: ",1,len(videos))
 	del videos[choice-1]
+	# dùng vòng lặp để lưu list video mới sau khi xóa 1 video, xóa được nhưng quay lại option 2 thì vẫn giữ nguyên list video cũ (trước khi xóa)
 	# new_videos = []
 	# for i in range(len(videos)):
 	# 	if i == choice-1:
@@ -49,8 +49,6 @@ def del_a_video(videos):
 	print("xxx")
 	print("Delete Successfully !!!")
 	return videos
-
-	
 
 def show_menu():
 	print("Main menu:")
