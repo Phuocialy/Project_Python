@@ -17,7 +17,6 @@ def main():
 		if choice == 1:
 			videos = module_func.read_videos()
 			module_func.write_videos_to_txt(videos)
-
 			input("\nPress Enter to continue.\n")
 		elif choice == 2:
 			videos = module_func.read_videos_from_txt()
@@ -30,7 +29,7 @@ def main():
 		elif choice == 4:
 			module_func.add_a_video(videos)
 			module_func.write_videos_to_txt(videos)
-			print("Add video successfully")
+			print("Add video successfully!!!")
 			input("\nPress Enter to continue.\n")
 		elif choice == 5:
 			module_func.play_video(videos)
