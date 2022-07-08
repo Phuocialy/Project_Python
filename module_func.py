@@ -8,7 +8,6 @@ class Video():
 def read_video():
 	title = input("Enter title: ") + "\n"
 	link = input("Enter link: ") + "\n"
-
 	video = Video(title, link)
 	return video
 def read_videos():
@@ -21,7 +20,6 @@ def read_videos():
 	return videos
 
 def write_video_to_txt(video, file):
-	# with open("data.txt", "w") as file:
 	file.write(video.title)
 	file.write(video.link)
 def write_videos_to_txt(videos):
@@ -45,7 +43,6 @@ def read_videos_from_txt():
 			videos.append(video)
 	return videos 
 
-
 def print_video(video):
 	print("Title video: ", video.title, end ="")
 	print("Link video: ", video.link, end ="")
@@ -64,18 +61,13 @@ def select_in_range(prompt, min, max):
 
 def del_a_video(videos):
 	print_videos(videos)
+	total = len(videos)
 	if videos == []:
 		print("List videos empty!!!")
 	else:
-		choice = select_in_range("Enter video you want to delete: ",1,len(videos))
+		choice = select_in_range("Enter video you want to delete (1, " + str(total) + "): ",1,total)
 		del videos[choice-1]
 		print("Delete Successfully !!!")
-	
-	# choice = select_in_range("Enter video you want to delete: ",1,len(videos))
-	# for i in range(len(videos)):
-	# 	if i == choice-1:
-	# 		videos.remove(videos[i])
-		
 	return videos
 
 def add_a_video(videos):
@@ -92,7 +84,6 @@ def play_video(videos):
 	print("Open video: " + videos[choice-1].title + " - " + videos[choice-1].link, end="")
 	webbrowser.open(videos[choice-1].link)
 	
-
 def show_menu():
 	print("Main menu:")
 	print("--------------------------")
