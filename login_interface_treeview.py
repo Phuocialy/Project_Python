@@ -93,19 +93,19 @@ my_tree.pack()
 tree_scroll.config(command=my_tree.yview)
 
 # Define Our Columns
-my_tree['columns'] = ("Stt", "Video title", "Favorite Pizza")
+my_tree['columns'] = ("Stt", "Video title", "Video link")
 
 # Formate Our Columns
 my_tree.column("#0", width=0, stretch=NO)
 my_tree.column("Stt", anchor=W, width=80)
 my_tree.column("Video title", anchor=CENTER, width=140)
-my_tree.column("Favorite Pizza", anchor=W, width=300)
+my_tree.column("Video link", anchor=W, width=300)
 
 # Create Headings 
 my_tree.heading("#0", text="", anchor=W)
 my_tree.heading("Stt", text="Stt", anchor=W)
 my_tree.heading("Video title", text="Video title", anchor=CENTER)
-my_tree.heading("Favorite Pizza", text="Favorite Pizza", anchor=W)
+my_tree.heading("Video link", text="Video link", anchor=W)
 
 # Add Data
 data = [
@@ -138,11 +138,9 @@ add_frame.pack(pady=20)
 #Labels
 nl = Label(add_frame, text="Stt")
 nl.grid(row=0, column=0)
-
 il = Label(add_frame, text="Video title")
 il.grid(row=0, column=1)
-
-tl = Label(add_frame, text="Topping")
+tl = Label(add_frame, text="Video link")
 tl.grid(row=0, column=2)
 
 #Entry boxes
