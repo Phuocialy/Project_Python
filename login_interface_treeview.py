@@ -146,37 +146,24 @@ tl = Label(add_frame, text="Topping")
 tl.grid(row=0, column=2)
 
 #Entry boxes
-name_box = Entry(add_frame)
-name_box.grid(row=1, column=0)
+stt_box = Entry(add_frame)
+stt_box.grid(row=1, column=0)
 
-id_box = Entry(add_frame)
-id_box.grid(row=1, column=1)
+title_box = Entry(add_frame)
+title_box.grid(row=1, column=1)
 
-topping_box = Entry(add_frame)
-topping_box.grid(row=1, column=2)
+link_box = Entry(add_frame)
+link_box.grid(row=1, column=2)
 
 # Add Record
 def add_video():
 	my_tree.tag_configure('oddrow', background="white")
 	my_tree.tag_configure('evenrow', background="lightblue")
-
-	global count
-	if count % 2 == 0:
-		my_tree.insert(parent='', index='end', iid=count, text="", values=(name_box.get(), id_box.get(), topping_box.get()), tags=('evenrow',))
-	else:
-		my_tree.insert(parent='', index='end', iid=count, text="", values=(name_box.get(), id_box.get(), topping_box.get()), tags=('oddrow',))
-
-	count += 1
-
+	my_tree.insert(parent='', index='end', iid=count, text="", values=(stt_box.get(), title_box.get(), link_box.get()), tags=('evenrow',))
 	# Clear the boxes
-	name_box.delete(0, END)
-	id_box.delete(0, END)
-	topping_box.delete(0, END)
-
-# Remove all records
-def remove_all():
-	for record in my_tree.get_children():
-		my_tree.delete(record)
+	stt_box.delete(0, END)
+	title_box.delete(0, END)
+	link_box.delete(0, END)
 
 # Remove one selected
 def remove_one():
@@ -185,24 +172,22 @@ def remove_one():
 
 # Remove many selected
 def play_a_video():
-	x = my_tree.selection()
-	for record in x:
-		my_tree.delete(record)
+	pass
 
 # Select Record
 def select_record():
 	# Clear entry boxes
-	name_box.delete(0, END)
-	id_box.delete(0, END)
-	topping_box.delete(0, END)
+	stt_box.delete(0, END)
+	title_box.delete(0, END)
+	link_box.delete(0, END)
 
 	# Grab record number
 	selected = my_tree.focus()
 	# Grab record values
 	values = my_tree.item(selected, 'values')
-	name_box.insert(0, values[0])
-	id_box.insert(0, values[1])
-	topping_box.insert(0, values[2])
+	stt_box.insert(0, values[0])
+	title_box.insert(0, values[1])
+	link_box.insert(0, values[2])
 
 # Create Binding Click function
 def clicker(e):
